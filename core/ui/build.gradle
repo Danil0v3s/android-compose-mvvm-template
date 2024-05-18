@@ -7,13 +7,13 @@ android {
     buildFeatures {
         compose true
     }
+    namespace 'br.com.firstsoft.core.ui'
 }
 
 dependencies {
-    api(libs.androidx.navigation.commonktx)
-
-    api(libs.accompanist.navigation.animation)
-
+    implementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.bundles.androidx.compose.debug)
     implementation(libs.bundles.androidx.compose)
+
+    implementation(libs.androidx.navigation.compose)
 }

@@ -1,19 +1,21 @@
 plugins {
     id("com.android.library")
     id("kotlin-android")
-    id("kotlin-kapt")
-    id("dagger.hilt.android.plugin")
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
 }
 
 android {
     buildFeatures {
         compose true
     }
+    namespace 'br.com.firstsoft.feature.home.ui'
 }
 
 dependencies {
     implementation(projects.core.ui)
 
+    implementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.bundles.androidx.compose.debug)
     implementation(libs.bundles.androidx.compose)
 
@@ -24,5 +26,5 @@ dependencies {
     implementation(libs.coil)
 
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 }

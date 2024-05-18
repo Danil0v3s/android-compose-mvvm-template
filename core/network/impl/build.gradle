@@ -18,3 +18,7 @@ dependencies {
     implementation(libs.okhttp.loggingInterceptor)
     implementation(libs.retrofit.moshi)
 }
+
+android {
+    namespace 'br.com.firstsoft.core.network'
+}

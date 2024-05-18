@@ -1,19 +1,15 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlin-kapt")
+    alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
-    id("dagger.hilt.android.plugin")
 }
 
 android {
-    namespace 'br.com.firstsoft.controlarr'
-    compileSdk libs.versions.androidsdk.compile.get().toInteger()
+    namespace 'br.com.firstsoft.template'
 
     defaultConfig {
-        applicationId "br.com.firstsoft.controlarr"
-        minSdk libs.versions.androidsdk.min.get().toInteger()
-        targetSdk libs.versions.androidsdk.target.get().toInteger()
+        applicationId "br.com.firstsoft.template"
         versionCode 1
         versionName "1.0"
 
@@ -38,11 +34,6 @@ android {
         kotlinCompilerExtensionVersion = libs.versions.androidx.compose.compiler.get()
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
-    }
-
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
@@ -52,11 +43,6 @@ android {
 
 dependencies {
     /**
-     * Accompanist
-     */
-    implementation(libs.accompanist.systemuicontroller)
-
-    /**
      * AndroidX
      */
     implementation(libs.androidx.lifecycle.viewmodel)
@@ -65,6 +51,7 @@ dependencies {
     /**
      * Compose
      */
+    implementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.bundles.androidx.compose.debug)
     implementation(libs.bundles.androidx.compose)
 
@@ -72,7 +59,7 @@ dependencies {
      * Hilt
      */
     implementation(libs.hilt.android)
-    kapt(libs.hilt.compiler)
+    ksp(libs.hilt.compiler)
 
     /**
      * Projects

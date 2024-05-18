@@ -9,3 +9,7 @@ dependencies {
 
     api(libs.coroutines)
 }
+
+android {
+    namespace 'br.com.firstsoft.core.preferences.api'
+}

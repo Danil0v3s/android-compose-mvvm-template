@@ -7,6 +7,7 @@ android {
     buildFeatures {
         compose true
     }
+    namespace 'br.com.firstsoft.controlarr.navigation'
 }
 
 dependencies {
@@ -16,6 +17,7 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.navigation.compose)
 
+    implementation(platform(libs.androidx.compose.bom))
     debugImplementation(libs.bundles.androidx.compose.debug)
     implementation(libs.bundles.androidx.compose)
 }
